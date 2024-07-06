@@ -3,7 +3,7 @@ const antiforeign = process.env.ANTIFOREIGN || 'FALSE';
 const autobio = process.env.AUTOBIO || 'TRUE';
 let botname = process.env.BOTNAME || '𝐃𝐑𝐄𝐗_𝐀𝐈';
 
-const owner = process.env.DEV || '254102074064'; // This will send a notification once the bot reconnects
+const owner = process.env.DEV || '27660169525 '; // This will send a notification once the bot reconnects
 const {
   default: dreadedConnect,
   useMultiFileAuthState,
@@ -29,8 +29,8 @@ const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/
  const { isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/dreadfunc');
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
-    const autoviewstatus = process.env.AUTOVIEW_STATUS || 'TRUE';
-const welcome = process.env.WELCOME || 'TRUE';
+    const autoviewstatus = process.env.AUTOVIEW_STATUS || 'FALSE';
+const welcome = process.env.WELCOME || 'FALSE';
 
 const color = (text, color) => {
   return !color ? chalk.green(text) : chalk.keyword(color)(text);
@@ -176,7 +176,7 @@ if (autobio === 'TRUE'){
 
                          client.updateProfileStatus( 
 
-                                         `Hail to ${botname}\n\n${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}.` 
+                                         `Hail to ${botname}\n\n${date.toLocaleString('en-US', { timeZone: 'Africa/Johannesburg' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Johannesburg'})}.` 
 
                                  ) 
 
@@ -193,7 +193,7 @@ if (autobio === 'TRUE'){
       mek = chatUpdate.messages[0];
       if (!mek.message) return;
       mek.message = Object.keys(mek.message)[0] === "ephemeralMessage" ? mek.message.ephemeralMessage.message : mek.message;
-      if (autoviewstatus === 'TRUE' && mek.key && mek.key.remoteJid === "status@broadcast") {
+      if (autoviewstatus === 'FALSE' && mek.key && mek.key.remoteJid === "status@broadcast") {
 
          client.readMessages([mek.key]);
 
